@@ -72,6 +72,8 @@ namespace PigLatin_Generator
 
                 //send the word out to be built in Pig Latin
                 translatedWords = BuildTranslatedWord(word, capitalization, punctuation, startsWithVowel, containsSpecialOrNum);
+
+                //If a sentence was sent, rebuild it and convert it back to a string.
                 if (words.Length > 1)
                 {
                     words[i] = translatedWords + punctuation + " ";
@@ -158,6 +160,7 @@ namespace PigLatin_Generator
         }
         public static string TranslateVowel(string word)
         {
+            //remove any punctuation so we are just working on the word. Could be moved to the determine punctuation method
             if ((word.EndsWith(".") == true) || (word.EndsWith(",") == true) || (word.EndsWith("'") == true)
              || (word.EndsWith("?") == true) || (word.EndsWith("!") == true))
                 word = word.Remove(word.Length - 1);
@@ -166,17 +169,28 @@ namespace PigLatin_Generator
         }
         public static string TranslateConsonant(string word)
         {
+            //determine where the first vowel is and return the index
             int vowelPosition = DetermineVowelPosition(word);
+
+            //using the fist vowel position, store the first part of the word up to that point
             string prefix = StorePrefix(vowelPosition, word);
+
+            //using the first vowel position, store the second part of the word past that point
             string suffix = StoreSuffix(vowelPosition, word);
+
             //append the prefix to the suffix and add "ay" to the end
             return suffix.ToLower() + prefix.ToLower() + "ay";
 
         }
         public static int DetermineVowelPosition(string word)
         {
+            //set the first vowel position to be the max
             int firstVowelPosition = word.Length;
+
+            //set to lowercase for easier comparison. We reset the case at the end so this is safe.
             word = word.ToLower();
+
+            //Compare the current vowel position to each of the vowels. If one has an earlier position, use that instead.
             if (firstVowelPosition > word.IndexOf('a') && word.Contains('a'))
             {
                 firstVowelPosition = word.IndexOf('a');
@@ -201,16 +215,21 @@ namespace PigLatin_Generator
         }
         public static string StorePrefix(int trimLocation, string word)
         {
+            //try to trim the word at the first vowel
             try
             { return word.Remove(trimLocation); }
+            
+            //if there are no vowels, just return the word
             catch
             { return word; }
 
         }
         public static string StoreSuffix(int trimLocation, string word)
         {
+            //set the word equal to the last part after the vowel
             word = word.Substring(trimLocation);
-
+            
+            //remove any punctuation. This might be able to be moved to the determine punctuation method
             if ((word.EndsWith(".") == true) || (word.EndsWith(",") == true) || (word.EndsWith("'") == true)
              || (word.EndsWith("?") == true) || (word.EndsWith("!") == true))
                 return word.Remove(word.Length-1);
@@ -219,11 +238,20 @@ namespace PigLatin_Generator
         }
         public static string ModifyToTitleCase(string word)
         {
+            //set the word to all lowercase
+            word.ToLower();
+
+            //separate the word into an array of letters
             char[] letters = word.ToCharArray();
             char firstLetter = letters[0];
+
+            //set the first letter to uppercase.
             letters[0] = char.ToUpper(firstLetter);
 
+            //empty the word so we can set to to be equal to the new letter array
             word = "";
+            
+            //rebuild the word out of the array values
             int i = 0;
             foreach (char letter in letters)
             {
@@ -252,6 +280,7 @@ namespace PigLatin_Generator
             else
                 translatedWord = word;
 
+            //set the word to be uppercase, lowercase, or titlecase
             if (capitalization == "UpperCase")
             {
                 translatedWord = translatedWord.ToUpper();
