@@ -1,0 +1,11 @@
+C:\Users\outvi\source\repos\PigLatin_Generator\bin\Debug\netcoreapp2.1\PigLatin_Generator.deps.json
+C:\Users\outvi\source\repos\PigLatin_Generator\bin\Debug\netcoreapp2.1\PigLatin_Generator.runtimeconfig.json
+C:\Users\outvi\source\repos\PigLatin_Generator\bin\Debug\netcoreapp2.1\PigLatin_Generator.runtimeconfig.dev.json
+C:\Users\outvi\source\repos\PigLatin_Generator\bin\Debug\netcoreapp2.1\PigLatin_Generator.dll
+C:\Users\outvi\source\repos\PigLatin_Generator\bin\Debug\netcoreapp2.1\PigLatin_Generator.pdb
+C:\Users\outvi\source\repos\PigLatin_Generator\obj\Debug\netcoreapp2.1\PigLatin_Generator.csprojAssemblyReference.cache
+C:\Users\outvi\source\repos\PigLatin_Generator\obj\Debug\netcoreapp2.1\PigLatin_Generator.csproj.CoreCompileInputs.cache
+C:\Users\outvi\source\repos\PigLatin_Generator\obj\Debug\netcoreapp2.1\PigLatin_Generator.AssemblyInfoInputs.cache
+C:\Users\outvi\source\repos\PigLatin_Generator\obj\Debug\netcoreapp2.1\PigLatin_Generator.AssemblyInfo.cs
+C:\Users\outvi\source\repos\PigLatin_Generator\obj\Debug\netcoreapp2.1\PigLatin_Generator.dll
+C:\Users\outvi\source\repos\PigLatin_Generator\obj\Debug\netcoreapp2.1\PigLatin_Generator.pdb
